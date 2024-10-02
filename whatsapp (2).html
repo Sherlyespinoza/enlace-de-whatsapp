@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto con la Bruja por WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡Contáctate con la Bruja por WhatsApp! 🧙‍♀️</h1>
+
+    <!-- Botón simple con mensaje predeterminado -->
+    <p>Presiona el botón para enviarme un mensaje en WhatsApp con un mensaje predeterminado:</p>
+    <a href="https://api.whatsapp.com/send?phone=+34918373520&text=Hola,%20me%20gustaría%20saber%20qué%20me%20depara%20el%20futuro,%20bruja." target="_blank" class="whatsapp-button">
+        Enviar Mensaje a la Bruja 🔮
+    </a>
+
+    <!-- Formulario para escribir un mensaje personalizado -->
+    <h2>Escribe tu propio mensaje a la Bruja</h2>
+    <p>Escribe un mensaje y presiona el botón para enviarlo:</p>
+
+    <form id="whatsapp-form">
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Escribe tu mensaje aquí... (por ejemplo, ¿cómo romper una maldición?)" required></textarea><br><br>
+        <button type="button" onclick="enviarWhatsApp()" class="whatsapp-button">Enviar Mensaje Personalizado 🧹</button>
+    </form>
+
+    <script>
+        function enviarWhatsApp() {
+            const mensaje = document.getElementById("mensaje").value;
+
+            if (mensaje) {
+                // Número de WhatsApp al que deseas enviar el mensaje
+                const numero = "+34918373520";  // Cambia por el número proporcionado
+
+                // Generar el enlace para enviar el mensaje
+                const link = `https://api.whatsapp.com/send?phone=${numero}&text=Hola,%20bruja,%20${encodeURIComponent(mensaje)}`;
+                window.open(link, '_blank');
+            } else {
+                alert("Por favor, escribe un mensaje antes de enviar.");
+            }
+        }
+    </script>
+
+</body>
+</html>
